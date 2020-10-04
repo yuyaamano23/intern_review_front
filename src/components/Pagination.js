@@ -1,27 +1,38 @@
 import React, { Component } from "react";
-import { Pagination } from "react-bootstrap";
 
 class PaginationComponent extends Component {
   render() {
-    let active = 2;
-    let items = [];
-    for (let number = 1; number <= 5; number++) {
-      items.push(
-        <Pagination.Item key={number} active={number === active}>
-          {number}
-        </Pagination.Item>,
-      );
+    const ActivePagination = (number) => {
+      const items = [];
+      for(let n = 1; n <= number; n++) {
+        items.push (
+          <li className="page-item">
+            <a className="page-link" href="/">
+              {n}
+            </a>
+          </li>
+        )
+      }
+      return items;
     }
-    const pagination = (
-      <div>
-        <Pagination>{items}</Pagination>
-      </div>
-    )
+    
     return (
-      <div>
-        {pagination}
-      </div>
-    )
+      <nav aria-label="Page navigation example">
+        <ul className="pagination">
+          <li className="page-item">
+            <a className="page-link" href="/">
+              Previous
+            </a>
+          </li>
+          {ActivePagination(5)}
+          <li className="page-item">
+            <a className="page-link" href="/">
+              Next
+            </a>
+          </li>
+        </ul>
+      </nav>
+    );
   }
 }
 
