@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-// import Button from "react-bootstrap/Button";
+import PostReviewForm from "./components/PostReviewForm";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Header />
-        {/* <Button> ボタンだよ </Button> */}
+        <PostReviewForm />
       </div>
     );
   }
