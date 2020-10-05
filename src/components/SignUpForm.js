@@ -9,13 +9,13 @@ class SignUpForm extends Component {
         style={{ width: "600px" }}
       >
         <div className="font-weight-bold h3 mb-4" style={{ margin: "10px" }}>
-          Sign Up
+          新規登録
         </div>
         <Form.Group controlId="formBasicEmail" style={{ margin: "10px" }}>
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            公開せませんので安心してください
           </Form.Text>
         </Form.Group>
 
@@ -29,7 +29,7 @@ class SignUpForm extends Component {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Button variant="success" type="submit" style={{ margin: "10px" }}>
-          Submit
+          登録する
         </Button>
       </Form>
     );
