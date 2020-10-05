@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import CompanyCard from "../components/CompanyCard";
 import Pagination from "../components/Pagination";
 
-class Main extends Component {
+class MainPage extends Component {
   render() {
     return (
       <>
@@ -23,4 +23,4 @@ class Main extends Component {
     );
   }
 }
-export default Main;
+export default MainPage;
