@@ -4,7 +4,7 @@ class SignUpForm extends Component {
   render() {
     return (
       <form
-        className="bg-white border rounded container mt-5"
+        className="bg-white border rounded container mt-4"
         style={{ width: "600px", boxShadow: "0 10px 25px 0 rgba(0, 0, 0, .5)" }}
       >
         <div className="font-weight-bold h3 mb-4" style={{ margin: "10px" }}>
@@ -36,6 +36,13 @@ class SignUpForm extends Component {
             rows="3"
           ></textarea>
         </div>
+        <button
+          type="submit"
+          className="btn btn-success"
+          style={{ margin: "10px" }}
+        >
+          投稿する
+        </button>
       </form>
     );
   }
