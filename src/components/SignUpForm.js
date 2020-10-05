@@ -1,37 +1,54 @@
 import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
 
 class SignUpForm extends Component {
   render() {
     return (
-      <Form
-        className="border border-secondary rounded"
-        style={{ width: "600px" }}
+      <form
+        className="bg-white border rounded container mt-4"
+        style={{ width: "600px", boxShadow: "0 10px 25px 0 rgba(0, 0, 0, .5)" }}
       >
         <div className="font-weight-bold h3 mb-4" style={{ margin: "10px" }}>
           新規登録
         </div>
-        <Form.Group controlId="formBasicEmail" style={{ margin: "10px" }}>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            公開せませんので安心してください
-          </Form.Text>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword" style={{ margin: "10px" }}>
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword" style={{ margin: "10px" }}>
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Button variant="success" type="submit" style={{ margin: "10px" }}>
+        <div className="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+          <small id="emailHelp" className="form-text text-muted">
+            公開せませんので安心して入力しやがれ
+          </small>
+        </div>
+        <div className="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+        </div>
+        <div className="form-group">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-success"
+          style={{ margin: "10px" }}
+        >
           登録する
-        </Button>
-      </Form>
+        </button>
+      </form>
     );
   }
 }
