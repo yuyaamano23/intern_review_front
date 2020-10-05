@@ -1,52 +1,49 @@
 import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
 
 class SignUpForm extends Component {
   render() {
     return (
-      <Form
-        className="border border-secondary rounded"
-        style={{ width: "600px" }}
+      <form
+        className="bg-white border rounded container mt-4"
+        style={{ width: "600px", boxShadow: "0 10px 25px 0 rgba(0, 0, 0, .5)" }}
       >
         <div className="font-weight-bold h3 mb-4" style={{ margin: "10px" }}>
           記事投稿フォーム
         </div>
-
-        <Form.Group style={{ margin: "10px" }}>
-          <Form.Label>訪問企業</Form.Label>
-          <Form.Control type="text" />
-        </Form.Group>
-        <Form.Group
-          controlId="exampleForm.SelectCustomSizeSm"
-          style={{ margin: "10px" }}
-        >
-          <Form.Label>期間</Form.Label>
-          <Form.Control as="select" size="sm" custom>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">企業</label>
+          <input class="form-control" type="text"></input>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">期間</label>
+          <select class="form-control" id="exampleFormControlSelect1">
             <option>1日</option>
             <option>1週間未満</option>
             <option>1ヶ月未満</option>
             <option>3ヶ月未満</option>
             <option>3ヶ月以上</option>
-          </Form.Control>
-        </Form.Group>
-
-        <Form.Group style={{ margin: "10px" }}>
-          <Form.Label>業務内容</Form.Label>
-          <Form.Control type="text" />
-        </Form.Group>
-
-        <Form.Group
-          controlId="exampleForm.ControlTextarea1"
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">業務内容</label>
+          <textarea class="form-control" type="text" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">感想</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="btn btn-success"
           style={{ margin: "10px" }}
         >
-          <Form.Label>感想</Form.Label>
-          <Form.Control as="textarea" rows="3" />
-        </Form.Group>
-
-        <Button variant="success" type="submit" style={{ margin: "10px" }}>
           投稿する
-        </Button>
-      </Form>
+        </button>
+      </form>
     );
   }
 }
