@@ -1,23 +1,19 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
 
 class CompanyCard extends Component {
   render() {
     return (
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title className="mb-3 border-bottom">Hamee</Card.Title>
-          <Card.Subtitle className="mb-3 text-muted">
-            1週間(9/7~9/11)
-          </Card.Subtitle>
-          <Card.Text style={{ fontSize: "0.7em" }}>
+      <div className="card m-3 p-2" style={{ width: "320px" }}>
+        <div className="card-body">
+          <div className="mb-3 border-bottom h3">Hamee</div>
+          <div className="mb-3 text-muted h6">1週間(9/7~9/11)</div>
+          <p className="card-text" style={{ fontSize: "0.8em" }}>
             自社サービスの拡張機能、商品検索APIの実装、フロントリファクタリング
-          </Card.Text>
-          {/* <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link> */}
-          <Button variant="success">記事詳細へ</Button>
-        </Card.Body>
-      </Card>
+          </p>
+          <a className="btn btn-success text-white">記事詳細へ</a>
+        </div>
+      </div>
     );
   }
 }

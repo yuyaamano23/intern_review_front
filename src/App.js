@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import PostReviewForm from "./components/PostReviewForm";
+import Main from "./pages/Main";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <PostReviewForm />
+        <Main />
       </div>
     );
   }
