@@ -4,7 +4,7 @@ import React, { Component } from "react";
 class CompanyCard extends Component {
   render() {
     return (
-      <div className="card m-3 p-2" style={{ width: "350px" }}>
+      <div className="card m-3 p-2" style={{ width: "320px" }}>
         <div className="card-body">
           <div className="mb-3 border-bottom h3">Hamee</div>
           <div className="mb-3 text-muted h6">1週間(9/7~9/11)</div>
