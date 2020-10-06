@@ -8,6 +8,7 @@ class CompanyCardList extends Component {
     this.state = {
       isLoaded: false,
       reviewData: [],
+
       // 仮データ
       //   reviewData: [
       //     {
@@ -51,6 +52,7 @@ class CompanyCardList extends Component {
   }
 
   componentDidMount() {
+    //render直後に行いたい処理を書くところ
     fetch("") //apiをここに記述
       .then((res) => res.json())
       .then((json) => {
@@ -70,6 +72,7 @@ class CompanyCardList extends Component {
     } else {
       return (
         <>
+          {/* 記事のid受け取って記事詳細に送る必要あるかも */}
           {this.state.reviewData.map((reviewData) => (
             <CompanyCard
               company={reviewData.company}
