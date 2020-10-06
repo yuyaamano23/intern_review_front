@@ -11,11 +11,11 @@ class SignUpForm extends Component {
           記事投稿フォーム
         </div>
         <div className="form-group">
-          <label for="exampleFormControlSelect1">企業</label>
+          <label htmlFor="exampleFormControlSelect1">企業</label>
           <input className="form-control" type="text"></input>
         </div>
         <div className="form-group">
-          <label for="exampleFormControlSelect1">期間</label>
+          <label htmlFor="exampleFormControlSelect1">期間</label>
           <select className="form-control" id="exampleFormControlSelect1">
             <option>1日</option>
             <option>1週間未満</option>
@@ -25,11 +25,11 @@ class SignUpForm extends Component {
           </select>
         </div>
         <div className="form-group">
-          <label for="exampleFormControlSelect1">業務内容</label>
+          <label htmlFor="exampleFormControlSelect1">業務内容</label>
           <textarea className="form-control" type="text" rows="2"></textarea>
         </div>
         <div className="form-group">
-          <label for="exampleFormControlTextarea1">感想</label>
+          <label htmlFor="exampleFormControlTextarea1">感想</label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
