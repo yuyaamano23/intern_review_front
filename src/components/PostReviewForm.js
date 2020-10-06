@@ -10,13 +10,13 @@ class SignUpForm extends Component {
         <div className="font-weight-bold h3 mb-4" style={{ margin: "10px" }}>
           記事投稿フォーム
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">企業</label>
-          <input class="form-control" type="text"></input>
+        <div className="form-group">
+          <label htmlFor="exampleFormControlSelect1">企業</label>
+          <input className="form-control" type="text"></input>
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">期間</label>
-          <select class="form-control" id="exampleFormControlSelect1">
+        <div className="form-group">
+          <label htmlFor="exampleFormControlSelect1">期間</label>
+          <select className="form-control" id="exampleFormControlSelect1">
             <option>1日</option>
             <option>1週間未満</option>
             <option>1ヶ月未満</option>
@@ -24,14 +24,14 @@ class SignUpForm extends Component {
             <option>3ヶ月以上</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">業務内容</label>
-          <textarea class="form-control" type="text" rows="2"></textarea>
+        <div className="form-group">
+          <label htmlFor="exampleFormControlSelect1">業務内容</label>
+          <textarea className="form-control" type="text" rows="2"></textarea>
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">感想</label>
+        <div className="form-group">
+          <label htmlFor="exampleFormControlTextarea1">感想</label>
           <textarea
-            class="form-control"
+            className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
