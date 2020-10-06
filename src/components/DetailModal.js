@@ -5,18 +5,14 @@ class DetailModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //   仮データ
-      reviewData: {
-        company: "Hamee",
-        term: "1週間",
-        task: "自社サービスであるネクストエンジンの商品検索API",
-        impression:
-          "オフラインで自社で開発しているネクストエンジンの開発に携わりました。社風はaaaaaaaaaaaaaa",
-      },
+      //  idで検索apiを作成して1件だけ取得して表示したい
+      isLoaded: false,
+      reviewData: [],
     };
   }
 
   render() {
+    console.log("detalmodelのが受け取ったid" + this.props.id);
     return (
       <>
         <div

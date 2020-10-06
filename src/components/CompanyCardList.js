@@ -58,7 +58,7 @@ class CompanyCardList extends Component {
   }
 
   // componentDidMount() {
-  //render直後に行いたい処理を書くところ
+  //   // render直後に行いたい処理を書くところ
   //   fetch("") //apiをここに記述
   //     .then((res) => res.json())
   //     .then((json) => {
@@ -78,13 +78,13 @@ class CompanyCardList extends Component {
     // } else {
     return (
       <>
-        {/* 記事のid受け取って記事詳細に送る必要あるかも */}
-        {this.state.reviewData.map((reviewData) => (
+        {this.state.reviewData.map((e) => (
           <CompanyCard
-            key={reviewData.id}
-            company={reviewData.company}
-            term={reviewData.term}
-            task={reviewData.task}
+            key={e.id}
+            id={e.id}
+            company={e.company}
+            term={e.term}
+            task={e.task}
           />
         ))}
       </>

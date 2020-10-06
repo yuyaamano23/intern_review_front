@@ -1,9 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class CompanyCard extends Component {
   render() {
+    console.log(this.props);
     return (
       <div
         className="card p-2"
@@ -20,7 +20,7 @@ class CompanyCard extends Component {
           <p className="card-text" style={{ fontSize: "0.8em" }}>
             {this.props.task}
           </p>
-          <Link to="/detail" style={{ color: "white" }}>
+          <Link to={"/detail/" + this.props.id} style={{ color: "white" }}>
             <div className="btn btn-success text-white">記事詳細へ</div>
           </Link>
         </div>
