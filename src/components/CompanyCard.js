@@ -4,12 +4,15 @@ import React, { Component } from "react";
 class CompanyCard extends Component {
   render() {
     return (
-      <div className="card m-3 p-2" style={{ width: "320px" }}>
+      <div
+        className="card m-3 p-2"
+        style={{ width: "320px", boxShadow: "0 10px 25px 0 rgba(0, 0, 0, .5)" }}
+      >
         <div className="card-body">
-          <div className="mb-3 border-bottom h3">Hamee</div>
-          <div className="mb-3 text-muted h6">1週間(9/7~9/11)</div>
+          <div className="mb-3 border-bottom h3">{this.props.company}</div>
+          <div className="mb-3 text-muted h6">{this.props.term}</div>
           <p className="card-text" style={{ fontSize: "0.8em" }}>
-            自社サービスの拡張機能、商品検索APIの実装、フロントリファクタリング
+            {this.props.task}
           </p>
           <a className="btn btn-success text-white">記事詳細へ</a>
         </div>
