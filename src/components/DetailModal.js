@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class DetailModal extends Component {
   constructor(props) {
@@ -82,7 +83,9 @@ class DetailModal extends Component {
               margin: "10px",
             }}
           >
-            一覧に戻る
+            <Link to="/" style={{ color: "white" }}>
+              一覧に戻る
+            </Link>
           </button>
         </div>
       </>
