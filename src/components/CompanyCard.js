@@ -1,12 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CompanyCard extends Component {
   render() {
     return (
       <div
-        className="card m-3 p-2"
-        style={{ width: "320px", boxShadow: "0 10px 25px 0 rgba(0, 0, 0, .5)" }}
+        className="card p-2"
+        style={{
+          width: "320px",
+          boxShadow: "0 10px 25px 0 rgba(0, 0, 0, .5)",
+          margin: "10px",
+          marginRight: "50px",
+        }}
       >
         <div className="card-body">
           <div className="mb-3 border-bottom h3">{this.props.company}</div>
@@ -14,7 +20,9 @@ class CompanyCard extends Component {
           <p className="card-text" style={{ fontSize: "0.8em" }}>
             {this.props.task}
           </p>
-          <a className="btn btn-success text-white">記事詳細へ</a>
+          <Link to="/detail" style={{ color: "white" }}>
+            <div className="btn btn-success text-white">記事詳細へ</div>
+          </Link>
         </div>
       </div>
     );
