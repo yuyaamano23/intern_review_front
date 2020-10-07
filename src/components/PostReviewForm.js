@@ -2,6 +2,17 @@ import React, { Component } from "react";
 
 class SignUpForm extends Component {
   render() {
+    const countValidation = (text, MaxLength) => {
+      const CompanyNameError = document.querySelector(".CompanyNameError");
+      if (text.length > MaxLength) {
+        CompanyNameError.innerHTML = MaxLength + "文字以内で入力してください"
+      } else if (text.length === 0) {
+        CompanyNameError.innerHTML = "この項目は必須項目です"
+      } else {
+        CompanyNameError.innerHTML = ""
+      }
+    }
+
     return (
       <form
         className="bg-white border rounded container mt-4"
@@ -12,7 +23,8 @@ class SignUpForm extends Component {
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">企業</label>
-          <input className="form-control" type="text"></input>
+          <input className="form-control jsValidation" type="text" name="CompanyName" onChange={e => countValidation(e.target.value, 50)} />
+          <p className="CompanyNameError" style={{ color: 'red', fontSize: 8 }}></p>
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">期間</label>
