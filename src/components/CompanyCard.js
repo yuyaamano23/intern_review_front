@@ -10,8 +10,6 @@ class CompanyCard extends Component {
       }
       return string;
     }
-    console.log(this.props.task);
-    console.log(omittedContent(this.props.task));
     return (
       <div
         className="card p-2"
