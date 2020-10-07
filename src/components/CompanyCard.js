@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 
 class CompanyCard extends Component {
   render() {
-    console.log(this.props);
+    function omittedContent(string) {
+      const MAX_LENGTH = 50;
+      if (string.length > MAX_LENGTH) {
+        return string.substr(0, MAX_LENGTH) + "...";
+      }
+      return string;
+    }
     return (
       <div
         className="card p-2"
@@ -18,7 +24,7 @@ class CompanyCard extends Component {
           <div className="mb-3 border-bottom h3">{this.props.company}</div>
           <div className="mb-3 text-muted h6">{this.props.term}</div>
           <p className="card-text" style={{ fontSize: "0.8em" }}>
-            {this.props.task}
+            {omittedContent(this.props.task)}
           </p>
           <Link to={"/detail/" + this.props.id} style={{ color: "white" }}>
             <div className="btn btn-success text-white">記事詳細へ</div>

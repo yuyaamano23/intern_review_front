@@ -16,14 +16,14 @@ class CompanyCardList extends Component {
           company: "Hamee",
           term: "1週間",
           task:
-            "オフラインで自社で開発しているネクストエンジンの開発に携わりました。社風は...",
+            "オフラインで自社で開発しているネクストエンジンの開発に携わりました。社風はああああああああああああああaaaaaaaaaaaaa",
         },
         {
           id: "2",
           company: "Yahoo!",
           term: "3週間",
           task:
-            "オフラインで自社で開発しているネクストエンジンの開発に携わりました。社風は...",
+            "オフラインで自社で開発しているネクストエンジンの開発に携わりました。社風はbbbbbbbbbbbbbbbbbbb",
         },
         {
           id: "3",
