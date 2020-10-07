@@ -54,7 +54,6 @@ class SignUpForm extends Component {
 
   render() {
     const { info, message } = this.state;
-    console.log(`this.canSubmit=${this.canSubmit()}`);
     return (
       <form
         className="bg-white border rounded container mt-4"
@@ -96,15 +95,6 @@ class SignUpForm extends Component {
           {message.password && (
             <p style={{ color: "red", fontSize: 8 }}>{message.password}</p>
           )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Confirm Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Confirm Password"
-          />
         </div>
         <button
           type="submit"
