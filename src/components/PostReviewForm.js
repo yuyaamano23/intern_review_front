@@ -1,17 +1,64 @@
 import React, { Component } from "react";
+import Validation from "../validation";
 
 class SignUpForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      info: {
+        companyName: "",
+        jobContent: "",
+        Impressions: "",
+      },
+      message: {
+        companyName: "",
+        jobContent: "",
+        Impressions: "",
+      },
+      loading: false,
+    };
+  }
+  
   render() {
-    const countValidation = (text, MaxLength) => {
-      const CompanyNameError = document.querySelector(".CompanyNameError");
-      if (text.length > MaxLength) {
-        CompanyNameError.innerHTML = MaxLength + "文字以内で入力してください"
-      } else if (text.length === 0) {
-        CompanyNameError.innerHTML = "この項目は必須項目です"
-      } else {
-        CompanyNameError.innerHTML = ""
-      }
-    }
+    const handleChange = (event) => {
+      const key = event.target.name;
+      const value = event.target.value;
+      const MaxLength = event.target.maxLength;
+      const { info, message } = this.state;
+  
+      this.setState({
+        info: { ...info, [key]: value },
+      });
+      console.log(this.state);
+      this.setState({
+        message: {
+          ...message,
+          [key]: Validation.formValidate(key, value, MaxLength),
+        },
+      });
+    };
+
+    const canSubmit = () => {
+      const { info, message, loading } = this.state;
+  
+      const validInfo =
+        Object.values(info).filter((value) => {
+          return value === "";
+        }).length === 0;
+      const validMessage =
+        Object.values(message).filter((value) => {
+          return value !== "";
+        }).length === 0;
+      return validInfo && validMessage && !loading;
+    };
+  
+    // 連打されるのを防ぐ
+    const submit = () => {
+      this.setState({ loading: true });
+      this.setState({ loading: false });
+    };
+
+    const { info, message } = this.state;
 
     return (
       <form
@@ -23,8 +70,17 @@ class SignUpForm extends Component {
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">企業</label>
-          <input className="form-control jsValidation" type="text" name="CompanyName" onChange={e => countValidation(e.target.value, 50)} />
-          <p className="CompanyNameError" style={{ color: 'red', fontSize: 8 }}></p>
+          <input 
+            className="form-control"
+            type="text"
+            name="companyName"
+            maxLength="50"
+            value={info.companyName}
+            onChange={(event) => handleChange(event)}
+          />
+          {message.companyName && (
+            <p style={{ color: "red", fontSize: 8 }}>{message.companyName}</p>
+          )}  
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">期間</label>
@@ -38,20 +94,41 @@ class SignUpForm extends Component {
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">業務内容</label>
-          <textarea className="form-control" type="text" rows="2"></textarea>
+          <textarea
+            className="form-control"
+            type="text"
+            name="jobContent"
+            rows=""
+            maxLength="30"
+            value={info.jobContent}
+            onChange={(event) => handleChange(event)}
+          />
+          {message.jobContent && (
+            <p style={{ color: "red", fontSize: 8 }}>{message.jobContent}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlTextarea1">感想</label>
           <textarea
             className="form-control"
+            type="text"
+            name="Impressions"
+            maxLength="10"
+            value={info.Impressions}
+            onChange={(event) => handleChange(event)}
             id="exampleFormControlTextarea1"
             rows="3"
-          ></textarea>
+          />
+          {message.Impressions && (
+            <p style={{ color: "red", fontSize: 8 }}>{message.Impressions}</p>
+          )}
         </div>
         <button
           type="submit"
           className="btn btn-success"
           style={{ margin: "10px" }}
+          disabled={!canSubmit()}
+          onClick={() => submit()}
         >
           投稿する
         </button>
