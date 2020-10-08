@@ -27,10 +27,10 @@ class SignUpForm extends Component {
       const { info, message } = this.state;
 
       this.setState({
-        info: { ...info, [key]: value },
-      });
-      console.log(this.state);
-      this.setState({
+        info: {
+          ...info,
+          [key]: value,
+        },
         message: {
           ...message,
           [key]: Validation.formValidate(key, value, maxLength),

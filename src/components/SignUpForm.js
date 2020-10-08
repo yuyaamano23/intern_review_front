@@ -23,9 +23,10 @@ class SignUpForm extends Component {
       const value = e.target.value;
       const { info, message } = this.state;
       this.setState({
-        info: { ...info, [key]: value },
-      });
-      this.setState({
+        info: {
+          ...info,
+          [key]: value,
+        },
         message: {
           ...message,
           [key]: Validation.formValidate(key, value),
