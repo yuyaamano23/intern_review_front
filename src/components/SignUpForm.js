@@ -16,43 +16,43 @@ class SignUpForm extends Component {
       loading: false,
     };
   }
-  handleChange = (event) => {
-    const key = event.target.name;
-    const value = event.target.value;
-    const { info, message } = this.state;
-
-    this.setState({
-      info: { ...info, [key]: value },
-    });
-    this.setState({
-      message: {
-        ...message,
-        [key]: Validation.formValidate(key, value),
-      },
-    });
-  };
-
-  canSubmit = () => {
-    const { info, message, loading } = this.state;
-
-    const validInfo =
-      Object.values(info).filter((value) => {
-        return value === "";
-      }).length === 0;
-    const validMessage =
-      Object.values(message).filter((value) => {
-        return value !== "";
-      }).length === 0;
-    return validInfo && validMessage && !loading;
-  };
-
-  // 連打されるのを防ぐ
-  submit = () => {
-    this.setState({ loading: true });
-    this.setState({ loading: false });
-  };
 
   render() {
+    const handleChange = (e) => {
+      const key = e.target.name;
+      const value = e.target.value;
+      const { info, message } = this.state;
+      this.setState({
+        info: { ...info, [key]: value },
+      });
+      this.setState({
+        message: {
+          ...message,
+          [key]: Validation.formValidate(key, value),
+        },
+      });
+    };
+
+    const canSubmit = () => {
+      const { info, message, loading } = this.state;
+
+      const validInfo =
+        Object.values(info).filter((value) => {
+          return value === "";
+        }).length === 0;
+      const validMessage =
+        Object.values(message).filter((value) => {
+          return value !== "";
+        }).length === 0;
+      return validInfo && validMessage && !loading;
+    };
+
+    // 連打されるのを防ぐ
+    const submit = () => {
+      this.setState({ loading: true });
+      this.setState({ loading: false });
+    };
+
     const { info, message } = this.state;
     return (
       <form
@@ -72,7 +72,7 @@ class SignUpForm extends Component {
             // aria-describedby="emailHelp"
             placeholder="Enter email"
             value={info.email}
-            onChange={(event) => this.handleChange(event)}
+            onChange={(e) => handleChange(e)}
           />
           {message.email && (
             <p style={{ color: "red", fontSize: 8 }}>{message.email}</p>
@@ -90,7 +90,7 @@ class SignUpForm extends Component {
             id="exampleInputPassword1"
             placeholder="Password"
             value={info.password}
-            onChange={(event) => this.handleChange(event)}
+            onChange={(e) => handleChange(e)}
           />
           {message.password && (
             <p style={{ color: "red", fontSize: 8 }}>{message.password}</p>
@@ -100,8 +100,8 @@ class SignUpForm extends Component {
           type="submit"
           className="btn btn-success"
           style={{ margin: "10px" }}
-          disabled={!this.canSubmit()}
-          onClick={() => this.submit()}
+          disabled={!canSubmit()}
+          onClick={() => submit()}
         >
           登録する
         </button>

@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 class CompanyCard extends Component {
   render() {
-    function omittedContent(string) {
+    const omittedContent = (string) => {
       const MAX_LENGTH = 50;
       if (string.length > MAX_LENGTH) {
         return string.substr(0, MAX_LENGTH) + "...";
       }
       return string;
-    }
+    };
     return (
       <div
         className="card p-2"

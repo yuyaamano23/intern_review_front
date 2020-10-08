@@ -18,14 +18,14 @@ class SignUpForm extends Component {
       loading: false,
     };
   }
-  
+
   render() {
-    const handleChange = (event) => {
-      const key = event.target.name;
-      const value = event.target.value;
-      const MaxLength = event.target.maxLength;
+    const handleChange = (e) => {
+      const key = e.target.name;
+      const value = e.target.value;
+      const maxLength = e.target.maxLength;
       const { info, message } = this.state;
-  
+
       this.setState({
         info: { ...info, [key]: value },
       });
@@ -33,14 +33,14 @@ class SignUpForm extends Component {
       this.setState({
         message: {
           ...message,
-          [key]: Validation.formValidate(key, value, MaxLength),
+          [key]: Validation.formValidate(key, value, maxLength),
         },
       });
     };
 
     const canSubmit = () => {
       const { info, message, loading } = this.state;
-  
+
       const validInfo =
         Object.values(info).filter((value) => {
           return value === "";
@@ -51,7 +51,7 @@ class SignUpForm extends Component {
         }).length === 0;
       return validInfo && validMessage && !loading;
     };
-  
+
     // 連打されるのを防ぐ
     const submit = () => {
       this.setState({ loading: true });
@@ -70,17 +70,17 @@ class SignUpForm extends Component {
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">企業</label>
-          <input 
+          <input
             className="form-control"
             type="text"
             name="companyName"
             maxLength="50"
             value={info.companyName}
-            onChange={(event) => handleChange(event)}
+            onChange={(e) => handleChange(e)}
           />
           {message.companyName && (
             <p style={{ color: "red", fontSize: 8 }}>{message.companyName}</p>
-          )}  
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">期間</label>
@@ -101,7 +101,7 @@ class SignUpForm extends Component {
             rows=""
             maxLength="30"
             value={info.jobContent}
-            onChange={(event) => handleChange(event)}
+            onChange={(e) => handleChange(e)}
           />
           {message.jobContent && (
             <p style={{ color: "red", fontSize: 8 }}>{message.jobContent}</p>
@@ -115,7 +115,7 @@ class SignUpForm extends Component {
             name="Impressions"
             maxLength="10"
             value={info.Impressions}
-            onChange={(event) => handleChange(event)}
+            onChange={(e) => handleChange(e)}
             id="exampleFormControlTextarea1"
             rows="3"
           />
