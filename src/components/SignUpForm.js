@@ -8,10 +8,12 @@ class SignUpForm extends Component {
       info: {
         email: "",
         password: "",
+        confirmPassword: "",
       },
       message: {
         email: "",
         password: "",
+        confirmPassword: "",
       },
       loading: false,
     };
@@ -88,13 +90,30 @@ class SignUpForm extends Component {
             type="password"
             name="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="password"
             placeholder="Password"
             value={info.password}
             onChange={(e) => handleChange(e)}
           />
           {message.password && (
             <p style={{ color: "red", fontSize: 8 }}>{message.password}</p>
+          )}
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword2">Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            className="form-control"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            value={info.confirmPassword}
+            onChange={(e) => handleChange(e)}
+          />
+          {message.confirmPassword && (
+            <p style={{ color: "red", fontSize: 8 }}>
+              {message.confirmPassword}
+            </p>
           )}
         </div>
         <button

@@ -14,6 +14,16 @@ const passwordValidation = (password) => {
   return "";
 };
 
+const confirmPasswordValidation = (confirmPassword) => {
+  const password = document.getElementById("password").value;
+  console.log(confirmPassword);
+  console.log(password);
+  if (confirmPassword !== password) {
+    return "パスワードが一致していません";
+  }
+  return "";
+};
+
 const countValidation = (text, maxLength) => {
   if (!text) return "入力してください";
   if (text.length >= maxLength) return maxLength + "文字以内で入力してください";
@@ -25,12 +35,13 @@ class Validation {
   static formValidate = (type, value, maxLength) => {
     // eslint-disable-next-line default-case
 
-    console.log(type, value, maxLength);
     switch (type) {
       case "email":
         return emailValidation(value);
       case "password":
         return passwordValidation(value);
+      case "confirmPassword":
+        return confirmPasswordValidation(value);
       case "companyName":
       case "jobContent":
       case "Impressions":
